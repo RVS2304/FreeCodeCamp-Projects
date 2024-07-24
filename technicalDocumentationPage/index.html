@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Page on Machine Learning</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <header>
+            <h1>Introduction To Machine Learning</h1>
+        </header>
+        <a href="#What_is_Machine_Learning" class="nav-link">What is Machine Learning</a>
+        <a href="#Prerequisites" class="nav-link">Prerequisites</a>
+        <a href="#Types_of_Machine_Learning" class="nav-link">Types of Machine Learning</a>
+        <a href="#Key_Algorithms_in_Machine_Learning" class="nav-link">Key Algorithms in Machine Learning</a>
+        <a href="#Popular_ML_Frameworks" class="nav-link">Popular ML Frameworks</a>
+        <a href="#Example_ML_Project_-_House_Price_Prediction" class="nav-link">Example ML Project - House Price Prediction</a>
+    </nav>
+
+    <main id="main-doc">
+        <section class="main-section" id="What_is_Machine_Learning">
+            <header>What is Machine Learning</header>
+            <p>The term Machine Learning was first coined by Arthur Samuel in the year 1959. Looking back, that year was
+                probably the most significant in terms of technological advancements.</p>
+            <p> Machine learning is a subset of Artificial Intelligence (AI) which provides machines the ability to
+                learn automatically & improve from experience without being explicitly programmed to do so. In the
+                sense, it is the practice of getting Machines to solve problems by gaining the ability to think.</p>
+            <p>But wait, can a machine think or make decisions? Well, if you feed a machine a good amount of data, it
+                will learn how to interpret, process and analyze this data by using Machine Learning Algorithms, in
+                order to solve real-world problems. </p>
+        </section>
+        <section class="main-section" id="Prerequisites">
+            <header>Prerequisites</header>
+            <p>To Understand ML concepts and the working of Algorithms, you should have the follwing prerequisites:</p>
+            <ol>
+                <li>Mathematics
+                    <ul>
+                        <li>Linear Algebra</li>
+                        <li>Calculus</li>
+                        <li>Probability and Statistics</li>
+                    </ul>
+                </li>
+                <li>Programming Skills
+                    <ul>
+                        <li>Python</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+        <section class="main-section" id="Types_of_Machine_Learning">
+            <header>Types of Machine Learning</header>
+            <ul>
+                <li>Supervised Learning: Learning from labeled data. Key algorithms include Linear Regression, Logistic
+                    Regression, Decision Trees, and Support Vector Machines (SVM).</li>
+                <li>Unsupervised Learning: Learning from unlabeled data. Key algorithms include K-means Clustering,
+                    Hierarchical Clustering, and Principal Component Analysis (PCA).</li>
+                <li>Reinforcement Learning: Learning by interacting with an environment. Key concepts include agents,
+                    environments, and reward systems.</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Key_Algorithms_in_Machine_Learning">
+            <header>Key Algorithms in Machine Learning</header>
+            <ul>
+                <li> Linear Regression: Used for predicting continuous values.</li>
+                <li> Logistic Regression: Used for binary classification problems.</li>
+                <li>Decision Trees: Non-linear models that split data based on feature values.</li>
+                <li>Support Vector Machines (SVM): Used for classification by finding the optimal hyperplane that
+                    separates data points.</li>
+                <li>K-means Clustering: An unsupervised algorithm that groups data into K clusters.</li>
+                <li>Principal Component Analysis (PCA): Used for dimensionality reduction.</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Popular_ML_Frameworks">
+            <header>Popular ML Frameworks</header>
+            <ul>
+                <li> Scikit-learn: A simple and efficient tool for data mining and data analysis in Python.</li>
+                <li> TensorFlow: An open-source platform for machine learning developed by Google.</li>
+                <li>PyTorch: An open-source ML framework based on the Torch library, developed by Facebook's AI Research
+                    lab.</li>
+                <li>Keras: A high-level neural networks API, written in Python and capable of running on top of
+                    TensorFlow, CNTK, or Theano.</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Example_ML_Project_-_House_Price_Prediction">
+            <header>Example ML Project - House Price Prediction</header>
+            <p>Importing Libraries</p>
+            <code>import numpy as np
+                import pandas as pd
+                from sklearn.model_selection import train_test_split
+                from sklearn.linear_model import LinearRegression
+                from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+            </code>
+            <p>Loading The Dataset</p>
+            <code>
+                from sklearn.datasets import load_boston
+                boston = load_boston()
+                data = pd.DataFrame(boston.data, columns=boston.feature_names)
+                data['PRICE'] = boston.target
+            </code>
+            <p>Feature Selection</p>
+            <code>
+                X = data.drop('PRICE', axis=1)
+                y = data['PRICE']
+            </code>
+            <p>Splitting Data</p>
+            <code>
+                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+            </code>
+            <p>Training the Model</p>
+            <code>
+                model = LinearRegression()
+                model.fit(X_train, y_train)
+            </code>
+            <p>Making Predictions</p>
+            <code>
+                y_pred = model.predict(X_test)
+            </code>
+            <p>Model Evaluation</p>
+            <code>
+                mae = mean_absolute_error(y_test, y_pred)
+                mse = mean_squared_error(y_test, y_pred)
+                r2 = r2_score(y_test, y_pred)
+            </code>
+            <p>Printing Performance Metrics</p>
+            <code>print(f"MAE: {mae}, MSE: {mse}, R2: {r2}")</code>
+        </section>
+    </main>
+</body>
+
+</html>
